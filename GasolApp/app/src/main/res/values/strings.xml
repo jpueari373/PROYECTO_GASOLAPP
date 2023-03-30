@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GasolApp</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="registrarse">Registrarse</string>
+</resources>
