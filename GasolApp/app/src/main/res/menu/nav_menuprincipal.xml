@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/lista"
+            android:title="Gasolineras"
+            android:icon="@drawable/surtidor"/>
+
+        <item
+            android:id="@+id/mapa"
+            android:title="MAPA"
+            android:icon="@drawable/mapa"/>
+
+        <item
+            android:id="@+id/favoritos"
+            android:title="favoritos"
+            android:icon="@drawable/favoritos"/>
+
+        <item
+            android:id="@+id/graficas"
+            android:title="Gráficas"
+            android:icon="@drawable/graficas"/>
+
+        <item
+            android:id="@+id/historial"
+            android:title="Historial"
+            android:icon="@drawable/historial"/>
+
+        <item
+            android:id="@+id/salir"
+            android:title="Cerrar Sesión"
+            android:icon="@drawable/salir"/>
+
+    </group>
+
+</menu>

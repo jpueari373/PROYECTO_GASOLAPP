@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_color"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:theme="@style/Theme.AppCompat">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/nombreRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:fontFamily="@font/k2d_bold"
+                android:hint=" Nombre y Apellidos"
+                android:drawableLeft="@drawable/ic_user"
+                android:textColor="@color/white"
+                android:textColorHint="#FF5722" />
+
+            <EditText
+                android:id="@+id/usuarioRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:fontFamily="@font/k2d_bold"
+                android:hint=" Nombre de Usuario"
+                android:drawableLeft="@drawable/ic_user"
+                android:textColor="@color/white"
+                android:textColorHint="#FF5722" />
+
+            <EditText
+                android:id="@+id/contrasenaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:fontFamily="@font/k2d_bold"
+                android:ems="10"
+                android:hint=" Contraseña"
+                android:textColor="@color/white"
+                android:drawableLeft="@drawable/ic_lock"
+                android:inputType="textPassword"
+                android:textColorHint="#FF5722" />
+
+            <EditText
+                android:id="@+id/emailRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:fontFamily="@font/k2d_bold"
+                android:hint=" Email"
+                android:textColor="@color/white"
+                android:drawableLeft="@drawable/ic_mail"
+                android:textColorHint="#FF5722" />
+
+            <EditText
+                android:id="@+id/telefonoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:fontFamily="@font/k2d_bold"
+                android:hint=" Número de telefono"
+                android:drawableLeft="@drawable/ic_call"
+                android:textColor="@color/white"
+                android:textColorHint="#FF5722"
+                android:inputType="phone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/boton_registrarse"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp"
+                    android:fontFamily="@font/k2d_bold"
+                    android:background="@drawable/boton_redondo"
+                    android:text="@string/registrarse"
+                    android:textColor="#FFFFFF" />
+                <Button
+                    android:id="@+id/boton_volver"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp"
+                    android:fontFamily="@font/k2d_bold"
+                    android:background="@drawable/boton_redondo"
+                    android:text="@string/volver"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
