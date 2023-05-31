@@ -8,19 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.gasolapp.model.Usuario;
+import com.example.gasolapp.request.LoginRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Login extends AppCompatActivity {
 
@@ -53,10 +49,19 @@ public class Login extends AppCompatActivity {
                             //si res es true es que la consulta devuelve unos valores con los parametros introducidos y logea al usuario
                             if (res == true){
                                 String nombre = jsonRespuesta.getString("usuario");
-                                Intent i = new Intent(Login.this, MenuPrincipal.class);
-                                i.putExtra("usuario",nombre);
-                                Login.this.startActivity(i);
-                                Login.this.finish();
+                                String rol = jsonRespuesta.getString("rol");
+                                if (rol.equalsIgnoreCase("admin")){
+                                    Intent i = new Intent(Login.this, MenuPrincipalAdmin.class);
+                                    i.putExtra("usuario",nombre);
+                                    Login.this.startActivity(i);
+                                    Login.this.finish();
+                                }else{
+                                    Intent i = new Intent(Login.this, MenuPrincipal.class);
+                                    i.putExtra("usuario",nombre);
+                                    Login.this.startActivity(i);
+                                    Login.this.finish();
+                                }
+
                             }else{//Si res es false muestra una ventana de alerta de aviso que fallo el login.
                                 AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
                                 alerta.setMessage("Fallo en el Login")

@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class MenuPrincipal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
-
+    String usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +37,7 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
             Toast.makeText(this, "BIENVENIDO " + usuario.toUpperCase(Locale.ROOT), Toast.LENGTH_LONG).show();
             bienvenido.setText("Bienvenido: " + usuario);
         }
-        String usuario = bundle.getString("usuario");
+        usuario = bundle.getString("usuario");
         Toolbar toolbar = this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -99,6 +99,17 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
                 startActivity(i);
             }
         });
+
+        //Accion del boton de graficos
+        graficas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Llamada del Intent
+                Intent i = new Intent(getApplicationContext(), Graficos.class);
+                i.putExtra("usuario",usuario);
+                startActivity(i);
+            }
+        });
     }
 
 
@@ -121,6 +132,21 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
                 i = new Intent(this, Login.class);
                 startActivity(i);
                 MenuPrincipal.this.finish();
+                break;
+            case R.id.favoritos:
+                i = new Intent(getApplicationContext(), ListaFavoritos.class);
+                i.putExtra("usuario",usuario);
+                startActivity(i);
+                break;
+            case R.id.historial:
+                i = new Intent(getApplicationContext(), ListaHistorial.class);
+                i.putExtra("usuario",usuario);
+                startActivity(i);
+                break;
+            case R.id.graficas:
+                i = new Intent(getApplicationContext(), Graficos.class);
+                i.putExtra("usuario",usuario);
+                startActivity(i);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

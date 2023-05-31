@@ -3,7 +3,6 @@ package com.example.gasolapp;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,27 +10,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gasolapp.model.Gasolineras;
+import com.example.gasolapp.request.RegistroRequest;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Registro extends AppCompatActivity {
 
     private Button boton_registrarse, boton_volver;
     EditText nombre_completoT, nombre_usuarioT, contrasenaT, emailT, telefonoT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +36,6 @@ public class Registro extends AppCompatActivity {
         contrasenaT = this.findViewById(R.id.contrasenaRegistro);
         emailT = this.findViewById(R.id.emailRegistro);
         telefonoT = this.findViewById(R.id.telefonoRegistro);
-
 
 
         //boton de registrarse
@@ -65,13 +55,14 @@ public class Registro extends AppCompatActivity {
                             try {
                                 JSONObject jsonRespuesta = new JSONObject(response);
                                 boolean res = jsonRespuesta.getBoolean("success");
-                                if (res == true){
+                                if (res == true) {
                                     Intent i = new Intent(Registro.this, Login.class);
                                     Registro.this.startActivity(i);
                                     Registro.this.finish();
-                                }else{
+                                } else {
                                     AlertDialog.Builder alerta = new AlertDialog.Builder(Registro.this);
-                                    alerta.setMessage("Error en el registro")
+                                    String mensaje = jsonRespuesta.getString("message");
+                                    alerta.setMessage(mensaje)
                                             .setNegativeButton("Reintentar", null)
                                             .create()
                                             .show();
@@ -101,6 +92,7 @@ public class Registro extends AppCompatActivity {
             }
         });
     }
+
     //Metodo para comprobar si estan en blancos los campos en la ventana de registro
     public boolean comprobarCampos(String nombre, String usuario, String contrasena, String email, String telefonoString) {
         boolean res = true;

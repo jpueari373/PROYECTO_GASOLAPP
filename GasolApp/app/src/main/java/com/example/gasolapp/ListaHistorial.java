@@ -4,11 +4,15 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,13 +24,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gasolapp.model.HistorialModel;
-import com.example.gasolapp.model.HistorialModel;
+import com.example.gasolapp.request.EliminarHistorialRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -113,81 +119,143 @@ public class ListaHistorial extends AppCompatActivity {
     }
     //Metodo que se encarga de cargar los datos en la lista
     private void cargarLista(ArrayList<HistorialModel> registros) {
-        adaptador = new ArrayAdapter<String>(this, R.layout.list_item, R.id.nombre_item, obtenerDirecciones(registros));
+        ArrayList<String> fechasOrdenadas = obtenerFechas(registros);
+        obtenerCoste(registros);
+        Collections.sort(fechasOrdenadas); // Ordenar las fechas en orden ascendente
+
+        adaptador = new ArrayAdapter<String>(this, R.layout.list_item, R.id.nombre_item, fechasOrdenadas) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                TextView textView = view.findViewById(R.id.nombre_item);
+                String fecha = fechasOrdenadas.get(position);
+
+                // Mostrar solo la fecha en el elemento de la lista
+                textView.setText(fecha);
+
+                return view;
+            }
+        };
+
         ListView listaView = findViewById(R.id.historial_lista);
         listaView.setAdapter(adaptador);
         // Agregar un listener para manejar los clicks sobre los elementos de la lista
         listaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // Obtener la dirección seleccionada
-                int field1 = registros.get(i).getField1();
-                String provincia = registros.get(i).getProvincia();
-                String municipio = registros.get(i).getMunicipio();
-                String localidad = registros.get(i).getLocalidad();
-                String rotulo = registros.get(i).getRotulo();
-                String direccion = registros.get(i).getDireccion();
-                String carburante = registros.get(i).getCarburante();
-                double precio_carburante = registros.get(i).getPrecio_carburante();
-                double litros_repostados = registros.get(i).getLitros_repostados();
-                double coste_total = registros.get(i).getCoste_total();
-                String fecha = registros.get(i).getFecha();
-                String usuario = registros.get(i).getUsuario();
-                // Mostrar una alerta con la dirección seleccionada
-                AlertDialog.Builder builder = new AlertDialog.Builder(ListaHistorial.this);
-                builder.setMessage(" Fecha: " + fecha  + " \n Rotulo: " + rotulo + " \n Provincia: " + provincia + " \n Municipio: " + municipio + " \n Localidad: " + localidad +
-                                " \n Carburante: " + carburante + " \n Precio/litro: " + precio_carburante + " \n Litros repostados: " + litros_repostados + " \n Coste total: " + coste_total)
-                        .setPositiveButton("Eliminar de historial", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                Response.Listener<String> respuesta = new Response.Listener<String>() {
-                                    @Override
-                                    public void onResponse(String response) {
-                                        Log.d("RESPUESTA", response); // Agregar este Log para ver la respuesta del servidor
+                // Obtener la fecha seleccionada
+                String fechaSeleccionada = fechasOrdenadas.get(i);
 
-                                        try {
-                                            JSONObject jsonRespuesta = new JSONObject(response);
-                                            boolean res = jsonRespuesta.getBoolean("success");
-                                            if (res == true){
+                // Obtener los registros correspondientes a la fecha seleccionada
+                ArrayList<HistorialModel> registrosFechaSeleccionada = new ArrayList<>();
+                for (HistorialModel historial : registros) {
+                    if (historial.getFecha().equals(fechaSeleccionada)) {
+                        registrosFechaSeleccionada.add(historial);
+                    }
+                }
 
-                                            }else{
-                                                android.app.AlertDialog.Builder alerta = new android.app.AlertDialog.Builder(ListaHistorial.this);
-                                                alerta.setMessage("Error en el registro")
-                                                        .setNegativeButton("Reintentar", null)
-                                                        .create()
-                                                        .show();
-                                            }
-                                        } catch (JSONException e) {
-                                            e.getMessage();
-                                        }
-                                    }
-                                };
-                                Toast.makeText(ListaHistorial.this, "Eliminado de Historial", Toast.LENGTH_SHORT).show();
-                                EliminarHistorialRequest ehr = new EliminarHistorialRequest(field1, fecha, respuesta);
-                                RequestQueue cola = Volley.newRequestQueue(ListaHistorial.this);
-                                cola.add(ehr);
-                                String url= "https://gasolapp.000webhostapp.com/mostrarHistorial.php";
-                                recreate();
-                            }
-                        }).setNegativeButton("Volver", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // Acción a realizar al hacer clic en "volver"
-                                dialog.dismiss();
-
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();
+                // Mostrar el contenido completo de la fecha seleccionada
+                mostrarContenidoFecha(registrosFechaSeleccionada);
             }
         });
     }
 
-    private ArrayList<String> obtenerDirecciones(ArrayList<HistorialModel> historiales) {
-        ArrayList<String> direcciones = new ArrayList<>();
-        for (HistorialModel historial : historiales) {
-            direcciones.add(historial.getDireccion());
-            Log.d("direcciones", historial.getDireccion());
+    // Método para mostrar el contenido completo de la fecha seleccionada
+    private void mostrarContenidoFecha(ArrayList<HistorialModel> registrosFechaSeleccionada) {
+
+        // Declarar variables finales para field1 y fecha
+        final int[] field1 = new int[1];
+        final String[] fecha = new String[1];
+
+        // Construir el contenido completo a partir de los registros de la fecha seleccionada
+        StringBuilder contenido = new StringBuilder();
+        for (HistorialModel historial : registrosFechaSeleccionada) {
+            contenido.append("Direccion: ").append(historial.getDireccion() +"\n")
+                    .append("Rotulo: ").append(historial.getRotulo() + "\n")
+                    .append("Provincia: ").append(historial.getProvincia()+"\n")
+                    .append("Municipio: ").append(historial.getMunicipio()+"\n")
+                    .append("Localidad: ").append(historial.getLocalidad()+"\n")
+                    .append("Carburante: ").append(historial.getCarburante()+"\n")
+                    .append("Precio/litro: ").append(historial.getPrecio_carburante()+" €\n")
+                    .append("Litros repostados: ").append(historial.getLitros_repostados()+" L\n")
+                    .append("Coste total: ").append(historial.getCoste_total() +" €");
+
+            field1[0] = historial.getField1();
+            fecha[0] = historial.getFecha();
         }
-        return direcciones;
+
+        // Mostrar una alerta con el contenido completo
+        AlertDialog.Builder builder = new AlertDialog.Builder(ListaHistorial.this);
+        builder.setMessage(contenido.toString())
+                .setPositiveButton("Eliminar de historial", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Response.Listener<String> respuesta = new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d("RESPUESTA", response); // Agregar este Log para ver la respuesta del servidor
+
+                                try {
+                                    JSONObject jsonRespuesta = new JSONObject(response);
+                                    boolean res = jsonRespuesta.getBoolean("success");
+                                    if (res == true){
+
+                                    }else{
+                                        android.app.AlertDialog.Builder alerta = new android.app.AlertDialog.Builder(ListaHistorial.this);
+                                        alerta.setMessage("Error en el registro")
+                                                .setNegativeButton("Reintentar", null)
+                                                .create()
+                                                .show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.getMessage();
+                                }
+                            }
+                        };
+                        Toast.makeText(ListaHistorial.this, "Eliminado de Historial", Toast.LENGTH_SHORT).show();
+                        EliminarHistorialRequest ehr = new EliminarHistorialRequest(field1[0], fecha[0], respuesta);
+                        RequestQueue cola = Volley.newRequestQueue(ListaHistorial.this);
+                        cola.add(ehr);
+                        recreate();
+                    }
+                }).setNegativeButton("Volver", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Acción a realizar al hacer clic en "volver"
+                        dialog.dismiss();
+
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
+
+
+
+
+//metodo que toma las fechas de los repostajes para cargarlos despues en la lista de historial
+    private ArrayList<String> obtenerFechas(ArrayList<HistorialModel> historiales) {
+        ArrayList<String> fechas = new ArrayList<>();
+        for (HistorialModel historial : historiales) {
+            fechas.add(historial.getFecha());
+            Log.d("fechas", historial.getFecha());
+        }
+        return fechas;
+    }
+
+    private void obtenerCoste(ArrayList<HistorialModel> historiales) {
+        double coste_total = 0;
+        for (HistorialModel historial : historiales) {
+            coste_total += historial.getCoste_total();
+        }
+
+        // Formatear el coste total con dos decimales
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        String costeFormateado = decimalFormat.format(coste_total);
+
+        TextView coste = findViewById(R.id.total_numero);
+        coste.setText(costeFormateado + " €");
+    }
+
 
 }

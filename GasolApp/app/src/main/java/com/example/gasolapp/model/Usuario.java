@@ -2,31 +2,77 @@ package com.example.gasolapp.model;
 
 public class Usuario {
 
-    private String username;
-    private String contrasenia;
+    private int id;
+    private String nombre;
+    private String usuario;
+    private String contrasena;
+    private String email;
+    private int telefono;
+    private String rol;
 
-    public Usuario(){
-
+    public Usuario(int id, String nombre, String usuario, String contrasena, String email, int telefono, String rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.email = email;
+        this.telefono = telefono;
+        this.rol = rol;
     }
 
-    public Usuario(String username, String contrasenia) {
-        this.username = username;
-        this.contrasenia = contrasenia;
+    public int getId() {
+        return id;
     }
 
-    public String getUsername() {
-        return username;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

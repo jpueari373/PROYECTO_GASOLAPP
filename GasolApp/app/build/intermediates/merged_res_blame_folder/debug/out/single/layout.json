@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\activity_maps.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\activity_maps.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\registro_usuario.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\registro_usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\guardar_historial_calculadora.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\guardar_historial_calculadora.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\login_usuario.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\login_usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\admin_dialog.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\admin_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\nav_header.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\lista_gasolineras.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_gasolineras.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\menu_lateral_admin.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\menu_lateral_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\menu_lateral.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\menu_lateral.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\lista_favoritos.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_favoritos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\lista_usuarios.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_usuarios.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\graficos.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\graficos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\list_item.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\eliminar_historial.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\eliminar_historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\historial.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\info_gasolinera.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\info_gasolinera.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-mergeDebugResources-46:\\layout\\eliminar_favoritos.xml",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\eliminar_favoritos.xml"
+    },
+    {
+        "merged": "com.example.gasolapp-mergeDebugResources-46:/layout/historial.xml",
+        "source": "com.example.gasolapp-main-49:/layout/historial.xml"
+    }
+]

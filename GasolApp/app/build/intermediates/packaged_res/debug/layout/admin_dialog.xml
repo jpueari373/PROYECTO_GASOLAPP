@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_color"
+    android:padding="10dp">
+
+    <!-- Contenido personalizado del diálogo -->
+    <TextView
+        android:id="@+id/custom_dialog_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu Administrador"
+        android:fontFamily="@font/k2d_bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="3dp"
+        android:layout_marginBottom="5dp"/>
+
+    <!-- Botones personalizados -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/eliminarUsuario"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@color/naranja"
+            android:fontFamily="@font/k2d_bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:text="Eliminar usuario" />
+
+        <Button
+            android:id="@+id/eliminarFavoritos"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@color/naranja"
+            android:fontFamily="@font/k2d_bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:text="Eliminar favoritos" />
+
+        <Button
+            android:id="@+id/eliminarHistorial"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="@color/naranja"
+            android:fontFamily="@font/k2d_bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:text="Eliminar historial" />
+
+    </LinearLayout>
+
+</LinearLayout>

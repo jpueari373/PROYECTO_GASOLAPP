@@ -1,15 +1,13 @@
 package com.example.gasolapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -23,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gasolapp.model.Gasolineras;
+import com.example.gasolapp.request.EliminarFavoritosRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,16 +42,15 @@ public class ListaFavoritos extends AppCompatActivity {
         String nombreUsuario = bundle.getString("usuario");
         usuario = nombreUsuario;
 
-        //Accion del boton de buscar por provincia, donde totatmos la url del fichero php que hace la consulta a la bd
-        // y se lo pasamos al metodo
 
 
-        String url= "https://gasolapp.000webhostapp.com/mostrarFavoritos.php";
+
+        String url= "https://gasolapp.000webhostapp.com/mostrarFavoritos.php"; //url del fichero php para la consulta de la tabla de favoritos
         //metodo que realiza la consulta a la bd, donde le pasamos el campo y la url del fichero php
         realizarConsulta(usuario,url);
 
     }
-    //Este metodo realiza una consulta a la bd, mediante un fichero php, donde se le pasa el valor de la provincia y devuelve las gasolineras con esa provincia
+    //Este metodo realiza una consulta a la bd, mediante un fichero php, donde se le pasa el nombre del usuario logeado y muestra las gasolineras favoritas
     private void realizarConsulta(String usuario, String url) {
         //Creamos un StringRequest donde obtendremos el resultado de la consulta
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -64,7 +62,7 @@ public class ListaFavoritos extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
-                            //Si el array es 0 quiere decir que esa provincia no tiene gasolineras
+                            //Si el array es 0 quiere decir que ese usuario no tiene gasolineras favoritas
                             if (jsonArray.length() == 0) {
                                 Toast.makeText(ListaFavoritos.this, "No se encontraron gasolineras en favoritos", Toast.LENGTH_SHORT).show();
                                 return;
@@ -146,7 +144,7 @@ public class ListaFavoritos extends AppCompatActivity {
                 // Mostrar una alerta con la dirección seleccionada
                 AlertDialog.Builder builder = new AlertDialog.Builder(ListaFavoritos.this);
                 builder.setMessage("Rótulo: " + rotulo + "\n SP95: " + sp95 + " l/€\n SP98: " + sp98 + " l/€\n A: " + a + " l/€\n A+: " + aPlus + " l/€\n B: " + b + " l/€\n Horario: " + horario)
-                        .setPositiveButton("Eliminar de favoritos", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("- Favoritos", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Response.Listener<String> respuesta = new Response.Listener<String>() {
                                     @Override
@@ -174,13 +172,32 @@ public class ListaFavoritos extends AppCompatActivity {
                                 EliminarFavoritosRequest efr = new EliminarFavoritosRequest(field1, respuesta);
                                 RequestQueue cola = Volley.newRequestQueue(ListaFavoritos.this);
                                 cola.add(efr);
-                                String url= "https://gasolapp.000webhostapp.com/mostrarFavoritos.php";
-                                realizarConsulta(usuario,url);
+                                recreate();
                             }
                         }).setNegativeButton("Volver", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 // Acción a realizar al hacer clic en "volver"
                                 dialog.dismiss();
+
+                            }
+                        }).setNeutralButton("+ Historial", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //Llamada del Intent
+                                Intent i = new Intent(getApplicationContext(), CalculadoraRepostaje.class);
+                                i.putExtra("usuario", usuario);
+                                i.putExtra("field1", field1);
+                                i.putExtra("sp95", sp95);
+                                i.putExtra("sp98", sp98);
+                                i.putExtra("a", a);
+                                i.putExtra("aplus", aPlus);
+                                i.putExtra("b", b);
+                                i.putExtra("direccion", direccion);
+                                i.putExtra("rotulo", rotulo);
+                                i.putExtra("provincia", provincia);
+                                i.putExtra("municipio", municipio);
+                                i.putExtra("localidad", localidad);
+                                startActivity(i);
+
 
                             }
                         });

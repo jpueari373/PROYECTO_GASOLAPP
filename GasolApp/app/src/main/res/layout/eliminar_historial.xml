@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/eliminarHistorial_usuario"
+        android:layout_width="740px"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_search"
+        android:hint="  Usuario"
+        android:padding="30dp"
+        android:fontFamily="@font/k2d_bold"
+        android:textColor="@color/naranja"
+        android:textColorHint="@color/naranja" />
+
+    <Button
+        android:id="@+id/boton_buscar_usuario_historial"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="-75dp"
+        android:background="@drawable/boton_redondo"
+        android:padding="15dp"
+        android:text="Buscar"
+        android:fontFamily="@font/k2d_bold"
+        android:textColor="#FFFFFF" />
+
+
+    <ListView
+        android:id="@+id/lista_historial_eliminar"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_color" />
+</LinearLayout>

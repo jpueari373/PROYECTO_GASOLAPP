@@ -1,7 +1,6 @@
 package com.example.gasolapp;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.gasolapp.request.HistorialRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,6 +45,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.guardar_historial_calculadora);
         Bundle bundle = this.getIntent().getExtras();
+        //tomamos los valores pasados por el bundle de la activity anterior para poder usarlo en esta ventana
         int field1 = bundle.getInt("field1");
         String nombreUsuario = bundle.getString("usuario");
         double sp95 = bundle.getDouble("sp95");
@@ -69,6 +70,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
         rd_aplus = findViewById(R.id.rd_aplus);
         rd_b = findViewById(R.id.rd_b);
         sp95_precio = findViewById(R.id.sp95_precio);
+        //Dependiendo del precio de los carburantes saldra en verde o rojo en la tabla
         if (sp95 != 0){
             sp95_precio.setText("SP95: " + sp95 + " €");
             sp95_precio.setBackgroundColor(Color.GREEN);
@@ -108,6 +110,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
             b_precio.setText("B: " + b + " €");
             b_precio.setBackgroundColor(Color.RED);
         }
+        //Informacion adicional de la gasolinera
         nombre = findViewById(R.id.datos_nombre);
         nombre.setText("Nombre: " + rotulo);
         direccionG = findViewById(R.id.datos_direccion);
@@ -116,6 +119,9 @@ public class CalculadoraRepostaje extends AppCompatActivity {
         datos_provincia.setText("Provincia: " + provincia);
         datos_municipio = findViewById(R.id.datos_municipio);
         datos_municipio.setText("Municipio: " + municipio);
+        Button volver = findViewById(R.id.volver);
+        Button guardar = findViewById(R.id.guardar_historial);
+        //Accion del boton de calcular
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,7 +161,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
                             .setNegativeButton("Volver", null)
                             .create()
                             .show();
-                }else {
+                }else if (cantidadLitros.getText().length() != 0){
                     litros = Double.parseDouble(cantidadLitros.getText().toString());
                     total = litros * precioLitro;
                     String totalRepostadoString = String.format("%.2f", total);
@@ -163,11 +169,22 @@ public class CalculadoraRepostaje extends AppCompatActivity {
                     totalRepostado.setText("Total: " + totalRepostadoString + " €");
                 }
 
+                if (precioLitro == 0.0){
+                    guardar.setEnabled(false);//desactiva el boton
+                    guardar.setAlpha(0.5f);//le da opacidad al boton
+                    android.app.AlertDialog.Builder alerta = new android.app.AlertDialog.Builder(CalculadoraRepostaje.this);
+                    alerta.setMessage("Carburante no disponible")
+                            .setNegativeButton("Volver", null)
+                            .create()
+                            .show();
+                }else if (precioLitro != 0.0){
+                    guardar.setEnabled(true);//activa el boton
+                    guardar.setAlpha(1f);//quita la opacidad al boton
+                }
 
             }
         });
-        Button volver = findViewById(R.id.volver);
-        Button guardar = findViewById(R.id.guardar_historial);
+
         //Accion boton de volver
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,6 +224,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
                 // Convierte la fecha y hora en formato de texto
                 String currentDateTime = dateFormat.format(calendar.getTime());
                 String fecha = currentDateTime;
+                //Llama a la clase request de historial para realizar la consulta a la base de datos
                 if (total != 0){
                     HistorialRequest hr = new HistorialRequest(field1, provincia, municipio, localidad, rotulo, direccion, carburante, precio_carburante, litros,total,fecha,usuario,respuesta);
                     RequestQueue cola = Volley.newRequestQueue(CalculadoraRepostaje.this);
@@ -215,7 +233,7 @@ public class CalculadoraRepostaje extends AppCompatActivity {
                     CalculadoraRepostaje.this.finish();
                 }else {
                     android.app.AlertDialog.Builder alerta = new android.app.AlertDialog.Builder(CalculadoraRepostaje.this);
-                    alerta.setMessage("Por favor calcula el total")
+                    alerta.setMessage("Calcula el total")
                             .setNegativeButton("Volver", null)
                             .create()
                             .show();

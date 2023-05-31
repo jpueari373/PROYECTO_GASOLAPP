@@ -1,0 +1,326 @@
+[
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\menu_nav_menuprincipal.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\menu\\nav_menuprincipal.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-mdpi_ic_mapa_background.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-mdpi\\ic_mapa_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_boton_redondo.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\boton_redondo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_login_usuario.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\login_usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_registro_usuario.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\registro_usuario.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_lista_usuarios.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_usuarios.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_petroprix.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\petroprix.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_graficos.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\graficos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_icono.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\icono.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_user.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_mapa.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_mapa.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_surtidor.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\surtidor.png"
+    },
+    {
+        "merged": "com.example.gasolapp-merged_res-47:/layout_historial.xml.flat",
+        "source": "com.example.gasolapp-main-49:/layout/historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_menu_lateral.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\menu_lateral.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_call.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_call.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_separador.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\separador.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_gasolinera.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\gasolinera.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_gasolineras.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\gasolineras.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_mail.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_mail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_favoritos.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\favoritos.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_menu_lateral_admin.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\menu_lateral_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xhdpi_ic_mapa_background.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xhdpi\\ic_mapa_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_bg_color.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\bg_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_redcaroil.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\redcaroil.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_shell.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\shell.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-mdpi_ic_mapa_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-mdpi\\ic_mapa_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_info_gasolinera.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\info_gasolinera.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_salir.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\salir.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-hdpi_ic_mapa_background.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-hdpi\\ic_mapa_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_agla.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\agla.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxxhdpi_ic_mapa_background.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxxhdpi\\ic_mapa_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_guardar_historial_calculadora.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\guardar_historial_calculadora.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxhdpi_ic_mapa_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxhdpi\\ic_mapa_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_graficas.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\graficas.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\font_k2d_bold.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\font\\k2d_bold.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_cepsa.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\cepsa.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_user_blanco.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\user_blanco.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_activity_maps.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\activity_maps.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_lista_gasolineras.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_gasolineras.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_alcampo.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\alcampo.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_user.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\user.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_admin_dialog.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\admin_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_repsol.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\repsol.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_nav_header.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ballenoil.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\ballenoil.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_bg_nav.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\bg_nav.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxxhdpi_ic_mapa_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxxhdpi\\ic_mapa_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_eliminar_favoritos.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\eliminar_favoritos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-hdpi_ic_mapa_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-hdpi\\ic_mapa_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_historial.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_mapa.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\mapa.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable-v24_historial.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable-v24\\historial.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_lista_favoritos.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\lista_favoritos.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xhdpi_ic_mapa_foreground.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xhdpi\\ic_mapa_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-xxhdpi_ic_mapa_background.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-xxhdpi\\ic_mapa_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_carrefour.png.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\drawable\\carrefour.png"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\layout_eliminar_historial.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\layout\\eliminar_historial.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-debug-48:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-merged_res-47:\\drawable_ic_lock.xml.flat",
+        "source": "C:\\Users\\Jaime\\.gradle\\daemon\\7.4\\com.example.gasolapp-main-49:\\drawable\\ic_lock.xml"
+    }
+]

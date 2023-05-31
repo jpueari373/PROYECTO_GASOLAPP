@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -38,6 +40,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.gasolapp.databinding.ActivityMapsBinding;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,7 +56,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     LatLng actual;
-
+    LatLng gasolineraSeleccionada;
+    private Polyline rutaPolyline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
+
     }
 
     /**
@@ -106,16 +112,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        mMap.setMyLocationEnabled(true);
+        mMap.setMyLocationEnabled(true);//activa la posicio actual
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
         LocationManager locationManager = (LocationManager) MapsActivity.this.getSystemService(Context.LOCATION_SERVICE);
         LocationListener locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                actual = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(actual, 12), 5000, null);
+                actual = new LatLng(location.getLatitude(), location.getLongitude()); //objeto de posicion en el mapa con los datos de la ubicacion actual
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(actual));//mueve la camara a la ubicacion actual
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(actual, 12), 5000, null);//animacion de la camara
             }
 
             @Override
@@ -133,11 +138,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         };
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 7, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 7, locationListener);//actualiza a la ubicacion actual al mover la camara la distancia marcada
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
                 marker.showInfoWindow();
+                //Toma la posicion de la gasolinera seleccionada
+                gasolineraSeleccionada = marker.getPosition();
+                //En el gps del emulador da error por la ubicacion, pero en el movil funciona
+                //trazarRuta(actual,gasolineraSeleccionada);
                 return true;
             }
         });
@@ -200,67 +209,67 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 String rotulo = gasolinera.getString("Rotulo");
                                 String horario = gasolinera.getString("Horario");
                                 String fecha =  gasolinera.getString("fecha");
-
+                                //segun el nombre de la gasolinera, mostrara un logo distinto en el mapa
                                 switch (rotulo){
                                     case "RED CAR OIL":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud))
                                                 .title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l-/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l-/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.redcaroil)));
                                         break;
                                     case "REPSOL":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.repsol)));
                                         break;
                                     case "CEPSA":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.cepsa)));
                                         break;
                                     case "AGLA":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.agla)));
                                         break;
                                     case "SHELL":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.shell)));
                                         break;
                                     case "CARREFOUR":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.carrefour)));
                                         break;
                                     case "ALCAMPO":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.alcampo)));
                                         break;
                                     case "BALLENOIL":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ballenoil)));
                                         break;
                                     case "PETROPRIX":
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ballenoil)));
                                         break;
                                     default:
                                         mMap.addMarker(new MarkerOptions().position(new LatLng(latitud, longitud)).title(rotulo)
                                                 .snippet("Dirección: " + direccion + "\nSP95: " + precio_gas + " l/€" + "\nSP98: " + precio_g_3 + " l/€"
-                                                        + "\nA: " + precio_g_5 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_7 + " l/€" + "\nHorario: " + horario)
+                                                        + "\nA: " + precio_g_7 + " l/€" + "\nA+: " + precio_g_6 + " l/€" + "\nB: " + precio_g_5 + " l/€" + "\nHorario: " + horario)
                                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.gasolineras)));
                                         mMap.setInfoWindowAdapter(new MyinfoWindowAdapter(MapsActivity.this));
                                         break;
@@ -298,4 +307,60 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
+
+    //Traza la ruta de la ubicacion actual hasta la gasolinera seleccionada
+    //Da error al usarlo en el emulador de android por la ubicacion del dispositivo
+    private void trazarRuta(LatLng origen, LatLng destino) {
+        // Borra la ruta anterior si existe
+        if (rutaPolyline != null) {
+            rutaPolyline.remove();
+        }
+
+        // Aquí trazas la ruta entre los puntos origen y destino
+        // Puedes usar la clase PolylineOptions para agregar una línea en el mapa
+        PolylineOptions options = new PolylineOptions()
+                .add(origen)
+                .add(destino)
+                .width(5)
+                .color(Color.RED);
+        rutaPolyline = mMap.addPolyline(options);
+    }
+    //El metodo comentado traza la ruta por las carreteras del mapa sin trazar una linea recta, pero tiene el inconveniente que pide facturación para poder usar
+    //la api de directions de google, esta activada pero tendria que pagar para usarla.
+    /*
+    private void trazarRuta(LatLng origen, LatLng destino) {
+    GeoApiContext context = new GeoApiContext.Builder()
+            .apiKey("AIzaSyBwVRaBdxMMO40HHLcrqP0paTdH8lRtpdE")
+            .build();
+
+    DirectionsApiRequest request = DirectionsApi.getDirections(context,
+            origen.latitude + "," + origen.longitude,
+            destino.latitude + "," + destino.longitude);
+
+    try {
+        DirectionsResult result = request.await();
+        if (result.routes != null && result.routes.length > 0) {
+            DirectionsRoute ruta = result.routes[0];
+
+            List<LatLng> puntosRuta = new ArrayList<>();
+            for (DirectionsLeg leg : ruta.legs) {
+                for (DirectionsStep step : leg.steps) {
+                    puntosRuta.add(new LatLng(step.startLocation.lat, step.startLocation.lng));
+                    puntosRuta.addAll(PolylineEncoding.decode(step.polyline.getEncodedPath()));
+                    puntosRuta.add(new LatLng(step.endLocation.lat, step.endLocation.lng));
+                }
+            }
+
+            if (rutaPolyline != null) {
+                rutaPolyline.remove();
+            }
+
+            PolylineOptions opcionesRuta = new PolylineOptions()
+                    .addAll(puntosRuta)
+                    .width(8)
+                    .color(Color.BLUE)
+                    .geodesic(true);
+
+            rutaPolyline = mMap.addPolyline(opcionesRuta);
+     */
 }

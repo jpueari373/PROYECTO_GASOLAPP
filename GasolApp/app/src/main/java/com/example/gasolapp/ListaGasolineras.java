@@ -2,19 +2,14 @@ package com.example.gasolapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,18 +24,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gasolapp.model.Gasolineras;
-import com.example.gasolapp.model.Usuario;
+import com.example.gasolapp.request.FavoritosRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class ListaGasolineras extends AppCompatActivity {
@@ -120,7 +111,7 @@ public class ListaGasolineras extends AppCompatActivity {
                                 String horario = gasolinera.getString("Horario");
                                 String fecha =  gasolinera.getString("fecha");
                                 Gasolineras objetoGasolinera  = new Gasolineras(field1,provincia,municipio,localidad,codigo_postal,direccion,longitud,latitud
-                                ,precio_gas,precio_g_3,precio_g_5,precio_g_6,precio_g_7,rotulo,horario,fecha);
+                                        ,precio_gas,precio_g_3,precio_g_5,precio_g_6,precio_g_7,rotulo,horario,fecha);
                                 gasolineras.add(objetoGasolinera);
                             }
                             //Metodo que carga el resultado en la lista
@@ -238,7 +229,7 @@ public class ListaGasolineras extends AppCompatActivity {
                 // Mostrar una alerta con la dirección seleccionada
                 AlertDialog.Builder builder = new AlertDialog.Builder(ListaGasolineras.this);
                 builder.setMessage("Rótulo: " + rotulo + "\n SP95: " + sp95 + " l/€\n SP98: " + sp98 + " l/€\n A: " + a + " l/€\n A+: " + aPlus + " l/€\n B: " + b + " l/€\n Horario: " + horario)
-                        .setPositiveButton("Añadir a favoritos", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Favoritos", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Response.Listener<String> respuesta = new Response.Listener<String>() {
                                     @Override
@@ -252,7 +243,7 @@ public class ListaGasolineras extends AppCompatActivity {
                                                 Toast.makeText(ListaGasolineras.this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
                                             }else{
                                                 android.app.AlertDialog.Builder alerta = new android.app.AlertDialog.Builder(ListaGasolineras.this);
-                                                alerta.setMessage("Error en el registro")
+                                                alerta.setMessage("Ya se encuentra en favoritos")
                                                         .setNegativeButton("Reintentar", null)
                                                         .create()
                                                         .show();
@@ -267,31 +258,31 @@ public class ListaGasolineras extends AppCompatActivity {
                                 cola.add(fr);
                             }
                         }).setNegativeButton("Volver", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Acción a realizar al hacer clic en "volver"
-                        dialog.dismiss();
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Acción a realizar al hacer clic en "volver"
+                                dialog.dismiss();
 
-                    }
-                }).setNeutralButton("Añadir a historial", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //Llamada del Intent
-                        Intent i = new Intent(getApplicationContext(), CalculadoraRepostaje.class);
-                        i.putExtra("usuario", usuario);
-                        i.putExtra("field1", field1);
-                        i.putExtra("sp95", sp95);
-                        i.putExtra("sp98", sp98);
-                        i.putExtra("a", a);
-                        i.putExtra("aplus", aPlus);
-                        i.putExtra("b", b);
-                        i.putExtra("direccion", direccion);
-                        i.putExtra("rotulo", rotulo);
-                        i.putExtra("provincia", provincia);
-                        i.putExtra("municipio", municipio);
-                        i.putExtra("localidad", localidad);
-                        startActivity(i);
+                            }
+                        }).setNeutralButton("Historial", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //Llamada del Intent
+                                Intent i = new Intent(getApplicationContext(), CalculadoraRepostaje.class);
+                                i.putExtra("usuario", usuario);
+                                i.putExtra("field1", field1);
+                                i.putExtra("sp95", sp95);
+                                i.putExtra("sp98", sp98);
+                                i.putExtra("a", a);
+                                i.putExtra("aplus", aPlus);
+                                i.putExtra("b", b);
+                                i.putExtra("direccion", direccion);
+                                i.putExtra("rotulo", rotulo);
+                                i.putExtra("provincia", provincia);
+                                i.putExtra("municipio", municipio);
+                                i.putExtra("localidad", localidad);
+                                startActivity(i);
 
 
-                    }
+                            }
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
